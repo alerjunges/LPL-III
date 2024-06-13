@@ -23,4 +23,4 @@ app.use('/docs/swagger.yaml', express.static('src/docs/swagger.yaml'))
 
 app.listen(port, () => {
     console.log(`Aplicação rodando na porta ${port}`);
-});
+}); 
