@@ -1,0 +1,2466 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Brechó Kismet",
+    "description": "API para controle de compra e venda"
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cliente": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Retorna todos os Clientes",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Clientes retornados com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cliente_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "nome": {
+                    "type": "string",
+                    "example": "Alexandre"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "alexandrejunges09@gamil.com"
+                  },
+                  "telefone": {
+                    "type": "string",
+                    "example": "(49)999870844"
+                  },
+                  "endereco": {
+                    "type": "string",
+                    "example": "Rua São Luiz"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "example": "07643505950"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro no servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Insere um Cliente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir um novo Cliente",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Alexandre"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alexandrejunges09@gamil.com"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(49)999870844"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Rua São Luiz"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "07643505950"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cliente criado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Alexandre"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alexandrejunges09@gamil.com"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(49)999870844"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Rua São Luiz"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "07643505950"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/cliente/{id}": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Retorna os Clientes pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Clientes retornados com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cliente_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "nome": {
+                    "type": "string",
+                    "example": "Alexandre"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "alexandrejunges09@gamil.com"
+                  },
+                  "telefone": {
+                    "type": "string",
+                    "example": "(49)999870844"
+                  },
+                  "endereco": {
+                    "type": "string",
+                    "example": "Rua São Luiz"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "example": "07643505950"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro no servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Deleta um Cliente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Cliente"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cliente deletado com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro no servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Atualiza parcialmente um Cliente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Cliente"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente o Cliente",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Alexandre"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cliente atualizado parcialmente com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Alexandre"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alexandrejunges09@gamil.com"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(49)999870844"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Rua São Luiz"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "07643505950"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/compra": {
+      "get": {
+        "tags": [
+          "COMPRA"
+        ],
+        "summary": "Retorna todos as compras",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "compra_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "cliente_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "data_compra": {
+                    "type": "string",
+                    "example": "2023-05-21"
+                  },
+                  "valor_total": {
+                    "type": "number",
+                    "example": 100
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "COMPRA"
+        ],
+        "summary": "Insere uma compra",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir uma nova Compra",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_compra": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Compra criada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_compra": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/compra/{id}": {
+      "get": {
+        "tags": [
+          "COMPRA"
+        ],
+        "summary": "Retorna as compras pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "compra_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "cliente_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "data_compra": {
+                    "type": "string",
+                    "example": "2023-05-21"
+                  },
+                  "valor_total": {
+                    "type": "number",
+                    "example": 100
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "COMPRA"
+        ],
+        "summary": "Deleta uma compra",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da Compra"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Compra deletada com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Compra não encontrada"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "COMPRA"
+        ],
+        "summary": "Atualiza parcialmente uma compra",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da Compra"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente uma Compra",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Compra atualizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_compra": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Compra não encontrada"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/compraProduto": {
+      "get": {
+        "tags": [
+          "COMPRA PRODUTO"
+        ],
+        "summary": "Consulta os detalhes das compras de produtos",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 10
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 100
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "COMPRA PRODUTO"
+        ],
+        "summary": "Insere uma nova compra de produtos",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir uma nova compra de produtos",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 10
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 100
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Compra de produtos criada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 10
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 100
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/compraProduto/{id}": {
+      "get": {
+        "tags": [
+          "COMPRA PRODUTO"
+        ],
+        "summary": "Consulta os detalhes das compras de produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 10
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 100
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "COMPRA PRODUTO"
+        ],
+        "summary": "Deleta uma compra de produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da compra de produtos"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Compra de produtos deletada com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Compra de produtos não encontrada"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "COMPRA PRODUTO"
+        ],
+        "summary": "Atualiza parcialmente uma compra de produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da compra de produtos"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente uma compra de produtos",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantidade": {
+                  "type": "number",
+                  "example": 15
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Compra de produtos atualizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "compra_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 15
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 150
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Compra de produtos não encontrada"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/fornecedor": {
+      "get": {
+        "tags": [
+          "FORNECEDOR"
+        ],
+        "summary": "Retorna todos os fornecedores",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fornecedor_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Nome do Fornecedor"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Endereço do Fornecedor"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(00) 00000-0000"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "fornecedor@example.com"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "12345678901234"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "FORNECEDOR"
+        ],
+        "summary": "Insere um fornecedor",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir um novo fornecedor",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Nome do Fornecedor"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Endereço do Fornecedor"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(00) 00000-0000"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "fornecedor@example.com"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "12345678901234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Fornecedor criado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fornecedor_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Nome do Fornecedor"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Endereço do Fornecedor"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(00) 00000-0000"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "fornecedor@example.com"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "12345678901234"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/fornecedor/{id}": {
+      "get": {
+        "tags": [
+          "FORNECEDOR"
+        ],
+        "summary": "Retorna os fornecedores pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fornecedor_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Nome do Fornecedor"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Endereço do Fornecedor"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(00) 00000-0000"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "fornecedor@example.com"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "12345678901234"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "FORNECEDOR"
+        ],
+        "summary": "Deleta um fornecedor",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Fornecedor"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Fornecedor deletado com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Fornecedor não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "FORNECEDOR"
+        ],
+        "summary": "Atualiza parcialmente um fornecedor",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Fornecedor"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um Fornecedor",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Nome do Fornecedor"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Endereço do Fornecedor"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(00) 00000-0000"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "fornecedor@example.com"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "12345678901234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fornecedor atualizado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fornecedor_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Nome do Fornecedor"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Endereço do Fornecedor"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(00) 00000-0000"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "fornecedor@example.com"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "12345678901234"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Fornecedor não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produto": {
+      "get": {
+        "tags": [
+          "PRODUTO"
+        ],
+        "summary": "Retorna todos os produtos",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Produto"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Descrição do produto"
+                },
+                "preco": {
+                  "type": "number",
+                  "example": 100
+                },
+                "quantidade_disponivel": {
+                  "type": "number",
+                  "example": 10
+                },
+                "tamanho": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cor": {
+                  "type": "string",
+                  "example": "Azul"
+                },
+                "tipo": {
+                  "type": "string",
+                  "example": "Eletrônico"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PRODUTO"
+        ],
+        "summary": "Insere um produto",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir um novo Produto",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Produto"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Descrição do produto"
+                },
+                "preco": {
+                  "type": "number",
+                  "example": 100
+                },
+                "quantidade_disponivel": {
+                  "type": "number",
+                  "example": 10
+                },
+                "tamanho": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cor": {
+                  "type": "string",
+                  "example": "Azul"
+                },
+                "tipo": {
+                  "type": "string",
+                  "example": "Eletrônico"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Produto criado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Produto"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Descrição do produto"
+                },
+                "preco": {
+                  "type": "number",
+                  "example": 100
+                },
+                "quantidade_disponivel": {
+                  "type": "number",
+                  "example": 10
+                },
+                "tamanho": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cor": {
+                  "type": "string",
+                  "example": "Azul"
+                },
+                "tipo": {
+                  "type": "string",
+                  "example": "Eletrônico"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produto/{id}": {
+      "get": {
+        "tags": [
+          "PRODUTO"
+        ],
+        "summary": "Retorna os produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Produto"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Descrição do produto"
+                },
+                "preco": {
+                  "type": "number",
+                  "example": 100
+                },
+                "quantidade_disponivel": {
+                  "type": "number",
+                  "example": 10
+                },
+                "tamanho": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cor": {
+                  "type": "string",
+                  "example": "Azul"
+                },
+                "tipo": {
+                  "type": "string",
+                  "example": "Eletrônico"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PRODUTO"
+        ],
+        "summary": "Deleta um produto",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Produto"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Produto deletado com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "PRODUTO"
+        ],
+        "summary": "Atualiza parcialmente um produto",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Produto"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um Produto",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "preco": {
+                  "type": "number",
+                  "example": 150
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto atualizado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Produto"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Descrição do produto"
+                },
+                "preco": {
+                  "type": "number",
+                  "example": 150
+                },
+                "quantidade_disponivel": {
+                  "type": "number",
+                  "example": 10
+                },
+                "tamanho": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "cor": {
+                  "type": "string",
+                  "example": "Azul"
+                },
+                "tipo": {
+                  "type": "string",
+                  "example": "Eletrônico"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/venda": {
+      "get": {
+        "tags": [
+          "VENDA"
+        ],
+        "summary": "Retorna todos as vendas",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_venda": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "VENDA"
+        ],
+        "summary": "Insere uma venda",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir uma nova Venda",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_venda": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Venda criada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_venda": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/venda/{id}": {
+      "get": {
+        "tags": [
+          "VENDA"
+        ],
+        "summary": "Retorna as vendas pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_venda": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "VENDA"
+        ],
+        "summary": "Deleta uma venda",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da Venda"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Venda deletada com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Venda não encontrada"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "VENDA"
+        ],
+        "summary": "Atualiza parcialmente uma venda",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da Venda"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente uma Venda",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Venda atualizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "cliente_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "data_venda": {
+                  "type": "string",
+                  "example": "2023-05-21"
+                },
+                "valor_total": {
+                  "type": "number",
+                  "example": 100
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Venda não encontrada"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/vendaProduto": {
+      "get": {
+        "tags": [
+          "VENDA PRODUTO"
+        ],
+        "summary": "Consulta os detalhes das vendas de produtos",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 5
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 50
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                },
+                "desconto": {
+                  "type": "number",
+                  "example": 0
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "VENDA PRODUTO"
+        ],
+        "summary": "Insere uma nova venda de produtos",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir um novo item de Venda",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 5
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 50
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                },
+                "desconto": {
+                  "type": "number",
+                  "example": 0
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Item de venda criado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 5
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 50
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                },
+                "desconto": {
+                  "type": "number",
+                  "example": 0
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/vendaProduto/{vendaId}/{produtoId}": {
+      "get": {
+        "tags": [
+          "VENDA PRODUTO"
+        ],
+        "summary": "Consulta os detalhes das vendas de produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "vendaId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "produtoId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 5
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 50
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 10
+                },
+                "desconto": {
+                  "type": "number",
+                  "example": 0
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "VENDA PRODUTO"
+        ],
+        "summary": "Deleta uma venda de produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "vendaId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da Venda"
+          },
+          {
+            "name": "produtoId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Produto"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Item de venda deletado com sucesso"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Item de venda não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "VENDA PRODUTO"
+        ],
+        "summary": "Atualiza parcialmente uma venda de produtos pelo ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "vendaId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da Venda"
+          },
+          {
+            "name": "produtoId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do Produto"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um item de Venda",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantidade": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item de venda atualizado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "venda_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "produto_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantidade": {
+                  "type": "number",
+                  "example": 10
+                },
+                "subtotal": {
+                  "type": "number",
+                  "example": 50
+                },
+                "preco_unitario": {
+                  "type": "number",
+                  "example": 5
+                },
+                "desconto": {
+                  "type": "number",
+                  "example": 0
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "401": {
+            "description": "Não autorizado"
+          },
+          "404": {
+            "description": "Item de venda não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Autenticação do usuário",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para autenticar o usuário",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "alerjunges"
+                },
+                "senha": {
+                  "type": "string",
+                  "example": "aleale"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário logado com sucesso"
+          },
+          "401": {
+            "description": "Usuário sem permissão"
+          },
+          "404": {
+            "description": "Não Encontrado"
+          },
+          "500": {
+            "description": "Erro de servidor"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Cria um novo usuário",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para criar um novo usuário",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "alexandre"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "alealeale"
+                },
+                "salt": {
+                  "type": "string",
+                  "example": "alealeale"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "username": {
+                  "type": "string",
+                  "example": "alexandre"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "alealeale"
+                },
+                "salt": {
+                  "type": "string",
+                  "example": "alealeale"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Obtém a lista de usuários",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "usuario_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "alexandre"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "alealeale"
+                  },
+                  "salt": {
+                    "type": "string",
+                    "example": "alealeale"
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "patch": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Atualiza um usuário",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do usuário a ser atualizado",
+            "example": 1
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados do usuário a serem atualizados",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "alexandre"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "alealeale"
+                },
+                "salt": {
+                  "type": "string",
+                  "example": "alealeale"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "username": {
+                  "type": "string",
+                  "example": "Exemplo Nome"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "alealeale"
+                },
+                "salt": {
+                  "type": "string",
+                  "example": "alealeale"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          },
+          "500": {
+            "description": "Erro ao atualizar usuário"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Remove um usuário",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do usuário a ser removido",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Nenhum Conteúdo"
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    }
+  }
+}
